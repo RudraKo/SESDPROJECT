@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  background: radial-gradient(circle at top, #fef4e8 0%, #f6f1ea 35%, #e6f0ec 100%);
+  min-height: 100vh;
+}
+
+.ambient {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.orb {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(0px);
+  opacity: 0.6;
+  animation: floaty 16s ease-in-out infinite;
+}
+
+.orb-1 {
+  width: 340px;
+  height: 340px;
+  background: radial-gradient(circle, rgba(15, 118, 110, 0.5), rgba(15, 118, 110, 0));
+  top: -80px;
+  left: -50px;
+}
+
+.orb-2 {
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(circle, rgba(249, 115, 22, 0.55), rgba(249, 115, 22, 0));
+  top: 35%;
+  right: -80px;
+  animation-delay: -6s;
+}
+
+.orb-3 {
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(circle, rgba(12, 15, 20, 0.2), rgba(12, 15, 20, 0));
+  bottom: -60px;
+  left: 25%;
+  animation-delay: -11s;
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(12, 15, 20, 0.08);
+  border-radius: 24px;
+  box-shadow: 0 20px 50px rgba(12, 15, 20, 0.08);
+  backdrop-filter: blur(14px);
+}
+
+.input {
+  @apply w-full rounded-xl border border-ink/10 bg-white/80 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-lagoon/50;
+}
+
+.btn-primary {
+  @apply rounded-xl bg-lagoon text-white px-4 py-3 text-sm font-semibold shadow-glow transition-transform hover:-translate-y-0.5;
+}
+
+.btn-secondary {
+  @apply rounded-xl bg-ember text-white px-4 py-3 text-sm font-semibold shadow-ember transition-transform hover:-translate-y-0.5;
+}
+
+.code-block {
+  @apply bg-ink/90 text-haze text-xs p-4 rounded-xl whitespace-pre-wrap min-h-[60px] font-mono;
+}
+
+.feed-card {
+  animation: reveal 0.6s ease forwards;
+  opacity: 0;
+}
+
+@keyframes floaty {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(18px);
+  }
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

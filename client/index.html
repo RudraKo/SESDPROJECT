@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pulseboard - Social Media Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body class="bg-haze text-ink font-display">
+    <div class="ambient">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+    </div>
+
+    <main class="relative z-10">
+      <header class="px-6 md:px-12 pt-10 md:pt-14">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+          <div>
+            <p class="text-ember uppercase tracking-[0.3em] text-xs font-mono">Social Media Engine</p>
+            <h1 class="text-4xl md:text-6xl font-semibold mt-4 leading-tight">
+              Pulseboard
+              <span class="block text-lg md:text-xl font-mono text-ink/70 mt-2">Bold social flow. Clean OOP backend.</span>
+            </h1>
+          </div>
+          <div class="glass-panel p-5 md:p-6 w-full md:w-[340px]">
+            <div id="authStatus" class="text-sm font-mono text-ink/70">Not signed in</div>
+            <div class="mt-4 flex gap-2">
+              <button id="btnLogout" class="btn-secondary w-full">Logout</button>
+              <button id="btnRefresh" class="btn-primary w-full">Refresh Feed</button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <section class="px-6 md:px-12 mt-12">
+        <div class="max-w-6xl mx-auto grid lg:grid-cols-[1.05fr_0.95fr] gap-8">
+          <div class="space-y-8">
+            <div class="glass-panel p-6">
+              <h2 class="text-xl font-semibold">Create account</h2>
+              <form id="registerForm" class="mt-4 grid gap-3">
+                <input class="input" name="username" placeholder="Username" required />
+                <input class="input" name="email" type="email" placeholder="Email" required />
+                <input class="input" name="password" type="password" placeholder="Password" required />
+                <input class="input" name="profilePicUrl" placeholder="Profile pic URL (optional)" />
+                <button class="btn-primary" type="submit">Register</button>
+              </form>
+            </div>
+
+            <div class="glass-panel p-6">
+              <h2 class="text-xl font-semibold">Sign in</h2>
+              <form id="loginForm" class="mt-4 grid gap-3">
+                <input class="input" name="email" type="email" placeholder="Email" required />
+                <input class="input" name="password" type="password" placeholder="Password" required />
+                <button class="btn-secondary" type="submit">Login</button>
+              </form>
+            </div>
+
+            <div class="glass-panel p-6">
+              <h2 class="text-xl font-semibold">Share a new post</h2>
+              <form id="postForm" class="mt-4 grid gap-3">
+                <input class="input" name="imageUrl" placeholder="Image URL" required />
+                <textarea class="input min-h-[90px]" name="caption" placeholder="Caption"></textarea>
+                <button class="btn-primary" type="submit">Publish</button>
+              </form>
+            </div>
+          </div>
+
+          <div class="space-y-8">
+            <div class="glass-panel p-6">
+              <h2 class="text-xl font-semibold">Follow a creator</h2>
+              <p class="text-sm text-ink/70 mt-1">Paste a user id to follow or unfollow.</p>
+              <div class="mt-4 grid gap-3">
+                <input class="input" id="followUserId" placeholder="User ID" />
+                <div class="grid grid-cols-2 gap-3">
+                  <button id="btnFollow" class="btn-primary" type="button">Follow</button>
+                  <button id="btnUnfollow" class="btn-secondary" type="button">Unfollow</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="glass-panel p-6">
+              <h2 class="text-xl font-semibold">Lookup profile</h2>
+              <p class="text-sm text-ink/70 mt-1">See follower counts and account info.</p>
+              <div class="mt-4 grid gap-3">
+                <input class="input" id="profileUserId" placeholder="User ID" />
+                <button id="btnProfile" class="btn-secondary" type="button">Load profile</button>
+                <pre id="profileOutput" class="code-block"></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="px-6 md:px-12 mt-12 pb-20">
+        <div class="max-w-6xl mx-auto">
+          <div class="flex items-center justify-between">
+            <h2 class="text-2xl font-semibold">Your feed</h2>
+            <span id="feedStatus" class="text-sm font-mono text-ink/60">Awaiting refresh</span>
+          </div>
+          <div id="feed" class="mt-6 grid gap-6"></div>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
