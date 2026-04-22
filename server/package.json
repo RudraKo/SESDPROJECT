@@ -8,7 +8,8 @@
     "start": "node dist/server.js",
     "postinstall": "prisma generate",
     "prisma:generate": "prisma generate",
-    "prisma:migrate": "prisma migrate dev"
+    "prisma:migrate": "prisma migrate dev",
+    "prisma:migrate:deploy": "npx prisma@5.18.0 migrate deploy"
   },
   "dependencies": {
     "@prisma/client": "^5.18.0",
