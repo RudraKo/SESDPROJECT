@@ -1,4 +1,5 @@
 import dotenv from "dotenv";
+import type { SignOptions } from "jsonwebtoken";
 
 dotenv.config();
 
@@ -13,6 +14,6 @@ for (const key of required) {
 export const env = {
   port: Number(process.env.PORT ?? 4000),
   jwtSecret: process.env.JWT_SECRET as string,
-  jwtExpiresIn: process.env.JWT_EXPIRES_IN ?? "1h",
+  jwtExpiresIn: (process.env.JWT_EXPIRES_IN ?? "1h") as SignOptions["expiresIn"],
   clientOrigin: process.env.CLIENT_ORIGIN ?? "http://localhost:5173"
 };
